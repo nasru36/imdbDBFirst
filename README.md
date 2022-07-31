@@ -21,6 +21,7 @@ Scaffolding:
 3. Table data represents list of Objects.
 
 Syntax: Scaffold-DbContext [-Connection] "" [-Provider] "" [-OutputDir] ""
+
         -Connection "" (Connection String to the database)
         -Provider "" ( Provider to use i.e., Microsoft.EntityFrameworkCore.SqlServer)
         -OutputDir "" ( The directory to put files in)
