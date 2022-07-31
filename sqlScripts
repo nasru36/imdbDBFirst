@@ -1,0 +1,51 @@
+CREATE DATABASE imdb;
+
+CREATE TABLE Genre(
+GenreID varchar(10) NOT NULL PRIMARY KEY,
+GenreType varchar(30) NOT NULL
+);
+
+CREATE TABLE Producer(
+ProducerID varchar(10) NOT NULL PRIMARY KEY,
+ProducerName varchar(30) NOT NULL,
+);
+
+CREATE TABLE Actor(
+ActorID varchar(10) NOT NULL PRIMARY KEY,
+ActorName varchar(30) NOT NULL,
+);
+
+--DROP TABLE Producer
+
+CREATE TABLE Movie (
+MovieID varchar(10) NOT NULL PRIMARY KEY,
+MovieTitle varchar (30) NOT NULL,
+ReleaseDate DATE NOT NULL,
+GenereID varchar(10) FOREIGN KEY References Genre(GenreID),
+ActorID varchar(10) FOREIGN KEY References Actor(ActorID),
+ProducerID varchar (10) FOREIGN KEY References Producer(ProducerID)
+);
+
+INSERT INTO Genre VALUES 
+				('G01', 'Action'),
+				('G02', 'Comedy'),
+				('G03', 'Thriller'),
+				('G04', 'Drama'),
+				('G05', 'Crime');
+
+INSERT INTO Producer VALUES 
+				('P01', 'SKF Productions'),
+				('P02', 'YASH RAJ'),
+				('P03', 'EROS');
+
+--DELETE FROM Producer
+
+INSERT INTO Actor VALUES 
+				('A01', 'Salman Khan'),
+				('A02', 'Shahrukh Khan'),
+				('A03', 'Aamir Khan');
+
+INSERT INTO Movie VALUES 
+    				('M01', 'Bajrangi Bhaijaan', '2015-07-16', 'G04', 'A01','P01'),
+    				('M02', 'Chak De India', '2007-08-10', 'G04', 'A02','P02'),
+    				('M03', 'Rangeela', '1995-09-08', 'G01', 'A03','P03');
